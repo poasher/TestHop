@@ -87,5 +87,6 @@ public class Ball: MonoBehaviour {
         countCollider = 0;
         transform.position = startPosition;
         ri.isKinematic = true;
+        isDrag = false;
     }
 }
