@@ -10,7 +10,6 @@ public class Ball: MonoBehaviour {
     private float offsetX;
     public int countCollider;
     private Vector3 startPosition;
-
     private void Awake()
     {
         startPosition = this.transform.position;
@@ -32,6 +31,7 @@ public class Ball: MonoBehaviour {
             {
                 ri.velocity = new Vector3(0, 5, 2f);
             }
+
 
             GameController.Instance.completePlatform();
         }

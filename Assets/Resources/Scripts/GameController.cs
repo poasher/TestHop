@@ -29,7 +29,7 @@ public class GameController : Singleton<GameController> {
     public Queue<GameObject> platforms;
     private int CountQueue = 8;
     private int record;
-
+    public ParticleSystem particle;
     public void GemCollect()
     {
         countGem++;
@@ -82,6 +82,17 @@ public class GameController : Singleton<GameController> {
 
     public void completePlatform() {
         count++;
+
+        if (count % 3 == 0)
+        {
+            var positionCamera = Camera.main.transform.position;
+            var particlePosition = particle.transform.position;
+            particlePosition.x = positionCamera.x;
+            particlePosition.z = positionCamera.z + 4;
+            particle.transform.position = particlePosition;
+            particle.Play();
+        }
+
         text.text = count.ToString();
         CreatePlatrform();
     }
